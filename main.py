@@ -1,9 +1,13 @@
 def main():
-    with open("books/frankenstein.txt") as f:
+    file_path = "books/frankenstein.txt"
+    with open(file_path) as f:
         file_contents = f.read()
         words = []
         words = file_contents.split()
+        print(f"--- Begin report of {file_path} ---")
         print(f"{len(words)} words found in the document")
+        print ()
+        print ()
         
     alpha = {}
     new = letters(file_contents)
@@ -14,8 +18,13 @@ def main():
         else:
             alpha[i] = 1
 
-    print (alpha)
+    end_report = chars_dict_to_sorted_list(alpha)
+
+    for pri in end_report:
+        print (f"The {pri["char"]} character was found {pri["num"]} times")
     
+    print ("--- End report ---")
+
 def accptcha(text):
     okay = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     newl =""
@@ -30,6 +39,23 @@ def letters(sentence):
     lowercase = sentence.lower()
     temp = accptcha(lowercase)
     return temp
+
+
+def sort_on(dictt):
+    return dictt["num"]
+    
+    
+def chars_dict_to_sorted_list(num_chars_dict):
+    temp_list = []
+    for cha in num_chars_dict:
+        temp_list.append({"char": cha, "num": num_chars_dict[cha]})
+    temp_list.sort(reverse=True, key=sort_on)
+    return temp_list
+    
+
+
+
+    
 
 
 main()
