@@ -1,11 +1,12 @@
+from stats import get_num_words
+
 def main():
     file_path = "books/frankenstein.txt"
     with open(file_path) as f:
         file_contents = f.read()
-        words = []
-        words = file_contents.split()
+        read = get_num_words(file_contents)
         print(f"--- Begin report of {file_path} ---")
-        print(f"{len(words)} words found in the document")
+        print(f"{read} words found in the document")
         print ()
         print ()
         
@@ -21,9 +22,12 @@ def main():
     end_report = chars_dict_to_sorted_list(alpha)
 
     for pri in end_report:
-        print (f"The {pri["char"]} character was found {pri["num"]} times")
+        #print (f"The {pri["char"]} character was found {pri["num"]} times")
+        print (f"The {pri['char']} character was found {pri['num']} times")
     
     print ("--- End report ---")
+
+
 
 def accptcha(text):
     okay = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
