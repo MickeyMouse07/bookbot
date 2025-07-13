@@ -18,18 +18,6 @@ def main():
             print_report(sys.argv[1], num_words, chars_sorted_list)
         
     
-        
-        
-        
-        
-  
-
-
-    #book_path = "books/frankenstein.txt"
-
-
-
-
 
 def print_report(book_path, num_words, chars_sorted_list):
     print("============ BOOKBOT ============")
